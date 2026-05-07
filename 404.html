@@ -4,15 +4,12 @@
   <meta charset="utf-8">
   <title>Strategic Portfolio Calculator</title>
   <script>
-    // GitHub Pages SPA routing trick
-    // Redirects all 404s back to index.html with path preserved
-    var path = window.location.pathname;
+    var base = '/spc/';
+    var path = window.location.pathname.replace(base, '');
     var search = window.location.search;
-    var hash = window.location.hash;
-    var redirect = '/?p=' + encodeURIComponent(path.slice(1)) + 
+    window.location.replace(base + '?p=' + encodeURIComponent(path) + 
       (search ? '&q=' + encodeURIComponent(search.slice(1)) : '') +
-      hash;
-    window.location.replace(redirect);
+      window.location.hash);
   </script>
 </head>
 <body></body>
